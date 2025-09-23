@@ -1,0 +1,153 @@
+// Print optimization styles
+
+// Global print settings
+body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+// Dark mode support with print considerations
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-light: #1a1a1a;
+        --color-dark: #e0e0e0;
+        --color-page-background: #000;
+        --color-primary: #e0e0e0;
+        --color-secondary: #ff9f40;
+        --color-right-col-background: #2a2a2a;
+        --color-right-col-heading-text: #ff9f40;
+        --color-right-col-body-text: #e0e0e0;
+    }
+
+    // Override dark mode for print to ensure readability
+    @media print {
+        :root {
+            --color-light: #fff !important;
+            --color-dark: #666 !important;
+            --color-page-background: #fff !important;
+            --color-primary: #58595b !important;
+            --color-secondary: #f68d2e !important;
+            --color-right-col-background: #eceef1 !important;
+            --color-right-col-heading-text: #f68d2e !important;
+            --color-right-col-body-text: #58595b !important;
+        }
+    }
+}
+
+// Print-specific optimizations
+@media print {
+    // Page setup
+    @page {
+        margin: 0.5in;
+        size: A4;
+    }
+
+    // Ensure proper page breaks
+    .content {
+        page-break-inside: avoid;
+    }
+
+    .content__left,
+    .content__right {
+        page-break-inside: avoid;
+    }
+
+    .section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .sideSection {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    // Avoid orphans and widows
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    // Ensure text remains readable
+    * {
+        color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    // Hide screen-only elements
+    .print-banner,
+    .print-mode-controls,
+    .print-mode-button,
+    .print-mode-status {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    // Optimize link display for print
+    a[href]:after {
+        content: none !important;
+    }
+
+    // Ensure badges remain visible and properly spaced
+    .badges {
+        a {
+            background-color: #f0f0f0 !important;
+            color: #333 !important;
+            border: 1px solid #ddd !important;
+            page-break-inside: avoid;
+        }
+    }
+
+    // Education sidebar improvements for print
+    .education__item {
+        page-break-inside: avoid;
+        margin-bottom: 0.5rem;
+    }
+
+    .education__separator {
+        page-break-before: avoid;
+        page-break-after: avoid;
+    }
+
+    // Skills section optimization
+    .skills__list {
+        page-break-inside: avoid;
+    }
+
+    // Experience section optimization
+    .experience {
+        .section__item {
+            page-break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+    }
+
+    // Ensure proper spacing in print
+    .mainHeading {
+        margin-bottom: 1rem;
+    }
+
+    .section {
+        margin-bottom: 1.5rem;
+
+        &__heading {
+            margin-bottom: 0.8rem;
+        }
+    }
+
+    .sideSection {
+        margin-bottom: 1.2rem;
+
+        &__heading {
+            margin-bottom: 0.6rem;
+        }
+    }
+}
+
+// Ensure semantic HTML elements don't interfere with existing layout
+header, aside, section {
+    display: block;
+    margin: 0;
+    padding: 0;
+}

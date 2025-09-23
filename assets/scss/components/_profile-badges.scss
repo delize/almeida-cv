@@ -1,0 +1,138 @@
+// Profile section with badge system
+
+#profile .section__content {
+    margin-top: 1rem; // Adjust this value as needed for desired spacing
+}
+
+.profile-row {
+    display: flex;
+    align-items: center;    // Vertically center the heading and badges
+    gap: 1rem;              // Adjust spacing between the heading and the badge group
+    flex-wrap: wrap;        // Optional: allows wrapping on smaller screens
+
+    .section__title {
+        margin: 0;
+    }
+
+    .badges {
+        margin-left: auto;
+        display: flex;          // Make badges appear in a row
+        align-items: center;
+        gap: 0.5rem;            // Spacing between individual badges
+    }
+
+    // Adjust divider if needed
+    .section__divider {
+        flex-basis: 100%;       // Make the divider start on a new line if desired
+        margin-top: 0.5rem;     // Optional spacing
+    }
+}
+
+.badge-section {
+    margin: 1.5rem;
+    height: auto;  // override or remove
+    width: 100%;
+
+    .center-flex {
+        display: flex;
+        justify-content: flex-start; // or center, if you want
+        align-items: center;
+        height: auto;               // override or remove
+    }
+}
+
+.badges a {
+    padding: 5px 10px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: $color-light;       // default background: white
+    color: $color-dark;                    // default text color: dark (#666 by default)
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+
+    &:hover {
+        background-color: $color-secondary;  // on hover, use secondary color
+        color: $color-light;                 // switch to light text
+        box-shadow: 0 2px 8px rgba($color-secondary, 0.3);
+    }
+
+    &:active {
+        background-color: $color-page-background; // on active/click state, use page background
+        color: $color-dark;
+    }
+}
+
+.profile-row .badges a.badge {
+    margin-top: 0 !important;  // Override any top margin applied elsewhere
+    vertical-align: middle;     // Helps ensure inline elements are centered
+}
+
+// Responsive adjustments for badges
+@media (max-width: 768px) {
+    .profile-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+
+        .badges {
+            margin-left: 0;
+            justify-content: flex-start;
+        }
+    }
+
+    .badges a {
+        margin-left: 0;
+        margin-right: 0.5rem;
+        margin-top: 0.5rem;
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+}
+
+// Print-specific badge styling
+@media print {
+    .profile-row {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+
+        .section__title {
+            margin: 0 !important;
+            flex-shrink: 0;
+        }
+
+        .badges {
+            display: flex !important;
+            flex-direction: row !important;
+            margin-left: auto !important;
+            margin-top: 0 !important;
+            flex-wrap: nowrap !important;
+            gap: 4px !important;
+            max-width: 60% !important;
+        }
+    }
+
+    .badges a {
+        background-color: #f8f8f8 !important;
+        color: #333 !important;
+        border: 1px solid #ddd !important;
+        margin: 0 2px !important;
+        padding: 2px 4px !important;
+        font-size: 8pt !important;
+        page-break-inside: avoid;
+        white-space: nowrap !important;
+        display: inline-block !important;
+    }
+
+    // Ensure the profile section maintains horizontal layout
+    .profile-row .section__divider {
+        display: block !important;
+        width: 100% !important;
+        clear: both !important;
+        margin-top: 8px !important;
+    }
+}

@@ -1,0 +1,205 @@
+// Contact obfuscation and security functionality
+
+// Contact styling overrides and obfuscation functionality
+.contact {
+    line-height: 2rem;
+
+    &__item {
+        position: relative;
+        font-size: 1rem;
+        border-top-width: 1px;
+        padding-top: 5px;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+
+    &__link {
+        color: $color-secondary;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+// Obfuscation styles for email and phone
+.email-placeholder,
+.phone-placeholder {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: $color-secondary;
+    }
+}
+
+.email-blur,
+.phone-blur {
+    color: rgba($color-primary, 0.7);
+    text-shadow: 0 0 6px rgba($color-primary, 0.8);
+    filter: blur(2px);
+    user-select: none;
+    cursor: pointer; // Make it obvious it's clickable without needing hover
+
+    &:hover {
+        // Maintain blur for security while indicating interactivity
+        cursor: pointer;
+        filter: blur(2px); // Keep same blur level
+        text-shadow: 0 0 8px rgba($color-secondary, 0.8);
+        color: rgba($color-secondary, 0.8); // More visible color change on hover
+    }
+}
+
+.email-revealed,
+.phone-revealed {
+    color: inherit !important; // Use the same color as normal contact items
+    filter: none !important;
+    text-shadow: none !important;
+}
+
+// Print mode controls
+.print-mode-controls {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.print-mode-button {
+    background: linear-gradient(135deg, #ff6b35, #f68d2e);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(246, 141, 46, 0.3);
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(246, 141, 46, 0.4);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 6px rgba(246, 141, 46, 0.3);
+    }
+}
+
+.print-mode-status {
+    color: $color-secondary;
+    font-weight: 500;
+    font-size: 0.9rem;
+
+    .status-text {
+        margin-right: 0.5rem;
+    }
+
+    #countdown {
+        font-weight: bold;
+        color: #ff6b35;
+    }
+}
+
+// Print mode active state - reveals contact info for printing (screen view)
+body.print-mode-active {
+    .email-placeholder, .phone-placeholder {
+        &.email-blur, &.phone-blur {
+            // For screen view during print mode - show actual content, hide pseudo-element
+            filter: none !important;
+            text-shadow: none !important;
+            color: $color-primary !important;
+
+            &::before {
+                display: none !important; // Hide pseudo-element in screen view
+            }
+        }
+
+        &.email-revealed, &.phone-revealed {
+            // If already revealed, keep it revealed without duplicating
+            color: inherit !important; // Use same color as normal contact items
+
+            &::before {
+                display: none !important; // Hide pseudo-element in screen view
+            }
+        }
+    }
+
+    // Add timestamp watermark for print mode
+    &::after {
+        content: "Print generated: " attr(data-print-timestamp);
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        font-size: 8px;
+        color: rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        pointer-events: none;
+    }
+}
+
+// Print-specific contact revelation
+@media print {
+    // Default print behavior - show placeholder text when not in print mode
+    .email-placeholder.email-blur,
+    .phone-placeholder.phone-blur {
+        filter: none !important;
+        text-shadow: none !important;
+        color: inherit !important;
+    }
+
+    body.print-mode-active {
+        .email-placeholder[data-print-decoded],
+        .phone-placeholder[data-print-decoded] {
+            &.email-blur, &.phone-blur,
+            &.email-revealed, &.phone-revealed {
+                color: transparent !important;
+                text-shadow: none !important;
+                filter: none !important;
+            }
+
+            &::before {
+                content: attr(data-print-decoded) !important;
+                display: inline-block !important;
+                color: #000 !important;
+                position: static !important;
+                width: auto !important;
+                height: auto !important;
+                filter: none !important;
+                text-shadow: none !important;
+                visibility: visible !important;
+            }
+        }
+
+        // Ensure print controls are hidden
+        .print-mode-controls,
+        .print-mode-button,
+        .print-mode-status {
+            display: none !important;
+        }
+
+        // Show timestamp in print
+        &::after {
+            display: block !important;
+            position: fixed !important;
+            bottom: 5mm !important;
+            right: 5mm !important;
+            font-size: 6pt !important;
+            color: #666 !important;
+        }
+    }
+}
+
+// Ensure proper noscript fallback styling
+noscript {
+    span {
+        color: $color-primary;
+        font-style: italic;
+    }
+}

@@ -1,3 +1,13 @@
+# Claude Code and development artifacts
+.claude/
+.history/
+.playwright-mcp/
+
+# Hugo build artifacts
+public/
+resources/
+.hugo_build.lock
+
 # OS
 .DS_Store
 ._*
@@ -6,5 +16,5 @@
 .idea/
 .vscode/
 .settings/
-*.subliime-workspace
+*.sublime-workspace
 *.sublime-project

@@ -1,0 +1,130 @@
+// Configurable underline bar styles
+
+// Alternative style - full-width thin line underneath headings
+@if $enable-underline-bar {
+    // Override the main section styling
+    .section {
+        &__heading {
+            position: relative;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 3px;
+                background: $color-secondary;
+                margin-top: 0.5rem;
+                position: relative;
+                left: 0;
+            }
+        }
+
+        &__title {
+            // Remove the original pseudo-element
+            &::after {
+                display: none !important;
+            }
+
+            &:hover {
+                // Add hover effect to the heading container
+                & + *::after,
+                &::after {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+
+    // Override the sidebar section styling - full width underline
+    .sideSection {
+        &__heading {
+            position: relative;
+            text-align: left; // Left-align instead of center
+
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 3px;
+                background: $color-right-col-heading-text;
+                margin-top: 0.5rem;
+                position: relative;
+                left: 0;
+            }
+        }
+
+        &__title {
+            // Remove the original pseudo-elements
+            &::after,
+            &::before {
+                display: none !important;
+            }
+        }
+    }
+
+    // Special handling for profile section with badges
+    .profile-row {
+        &.section__heading {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+
+            .badges {
+                margin-top: 0.5rem;
+                order: 2;
+            }
+
+            &::after {
+                order: 3;
+                margin-top: 0.5rem;
+            }
+
+            // On larger screens, show badges inline
+            @media (min-width: 769px) {
+                flex-direction: row;
+                align-items: center;
+
+                .badges {
+                    margin-top: 0;
+                    margin-left: auto;
+                    order: 2;
+                }
+
+                &::after {
+                    display: none; // Hide the underline when badges are inline
+                }
+            }
+        }
+    }
+
+    // Print-specific adjustments
+    @media print {
+        .section__heading::after {
+            background: #f68d2e !important; // Keep orange color for print
+        }
+
+        .sideSection__heading::after {
+            background: #f68d2e !important; // Keep orange color for print
+        }
+
+        .section__title::after,
+        .section__title::before,
+        .sideSection__title::after,
+        .sideSection__title::before {
+            display: none !important;
+        }
+    }
+
+    // Responsive adjustments
+    @media (max-width: 768px) {
+        .profile-row {
+            &.section__heading {
+                &::after {
+                    display: block !important;
+                    width: 100%;
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+    }
+}

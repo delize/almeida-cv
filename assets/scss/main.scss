@@ -6,6 +6,11 @@ $color-primary: {{ .Site.Params.colorPrimary | default "#e3bfb8"}} !default;
 
 $color-secondary: {{ .Site.Params.colorSecondary | default "#aaa"}} !default;
 
+// Text color options
+$color-body-text: {{ .Site.Params.colorBodyText | default "#666"}} !default;
+$color-list-text: {{ .Site.Params.colorListText | default "#555"}} !default;
+$color-heading-text: {{ .Site.Params.colorHeadingText | default "#333"}} !default;
+
 $color-icon-primary: {{ .Site.Params.colorIconPrimary | default "#fff"}} !default;
 $color-icon-background: {{ .Site.Params.colorIconBackground | default "#e3bfb8"}} !default;
 
@@ -17,6 +22,7 @@ $color-right-col-icon-background: {{ .Site.Params.colorRightColumnIconBackground
 $footer-note: '{{ .Site.Params.footerNote| default "2020 © by Inês Almeida   |   ines-almeida.com " }}' !default;
 
 $pages: {{ .Site.Params.pages | default 1}} !default;
+$enable-underline-bar: {{ .Site.Params.enableUnderlineBar | default false}} !default;
 
 @import "abstract";
 @import "functions";

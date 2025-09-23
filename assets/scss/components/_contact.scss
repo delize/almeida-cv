@@ -19,6 +19,21 @@
         }
         & > span {
             @include vt-center;
+            padding-top: 0.5rem;
+        }
+
+        // Fix for print/PDF alignment issues when print mode is active
+        // Use very high specificity to override existing rules
+
+        // Also fix for actual print media
+        @media print {
+            & > span {
+                position: absolute !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+                left: 2.5rem !important;
+                padding-top: 0 !important;
+            }
         }
     }
 
@@ -26,4 +41,23 @@
         text-decoration: none;
         color: $color-dark;
     }
+}
+
+// Fix for print/PDF alignment issues when print mode is active
+body.print-mode-active .contact__item > span {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 2.5rem !important;
+    padding-top: 0 !important;
+    transition: none !important; // Disable transitions that override positioning
+}
+
+// Fix alignment for the pseudo-elements that contain the actual content
+body.print-mode-active .phone-placeholder::before,
+body.print-mode-active .email-placeholder::before {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
 }

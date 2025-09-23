@@ -6,11 +6,23 @@ BasicInfo:
     - Icon: fas fa-phone
       Info: +44 123 456 789
     - Icon: fas fa-envelope
-      Info: contact@ines-almeida.com
+      Info: visible@email.com
     - Icon: fas fa-globe
       Info: <a class="contact__link" href="https://ines-almeida.com" target="_blank">ines-almeida.com</a>
     - Icon: fas fa-map-marker-alt
       Info: Portugal
+
+# Professional badges/links displayed in profile section
+Badges:
+  - title: LinkedIn
+    url: https://linkedin.com/in/inesalmeida
+    icon: fab fa-linkedin
+  - title: GitHub
+    url: https://github.com/ineesalmeida
+    icon: fab fa-github
+  - title: Website
+    url: https://ines-almeida.com
+    icon: fas fa-globe
 
 Profile: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 

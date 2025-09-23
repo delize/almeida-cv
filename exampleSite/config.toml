@@ -17,6 +17,11 @@ colorDark = "#666"
 colorPageBackground = "#ddd"
 colorPrimary = "#e3bfb8"
 colorSecondary = "#aaa"
+
+# Text color options
+colorBodyText = "#555"
+colorListText = "#444"
+colorHeadingText = "#333"
 colorIconPrimary = "#fff"
 colorIconBackground = "#e3bfb8"
 colorRightColumnBackground = "#f5f5f5"
@@ -24,7 +29,20 @@ colorRightColumnHeadingText = "#666"
 colorRightColumnBodyText = "#666"
 colorRightColumnIconPrimary = "#fff"
 colorRightColumnIconBackground = "#e3bfb8"
-pages = 1
+pages = 2
 # Set this param to 'true' to swap the bar positions
-swapColumns = false
+swapColumns = true
 footerNote = "2020 © by Inês Almeida   |   ines-almeida.com"
+
+# Enhanced Features Configuration
+# Enable contact obfuscation for email and phone security
+enableContactObfuscation = true
+# Enable structured data (Schema.org JSON-LD) for SEO
+enableStructuredData = true
+# Control robots meta tag for search engine indexing
+enableRobotsNoIndex = false
+# Path to favicon
+favicon = "/favicon.png"
+# Enable underline bar style (thin gray line) instead of default full-width bar
+enableUnderlineBar = true
+

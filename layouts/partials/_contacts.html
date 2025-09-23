@@ -1,10 +1,50 @@
 {{ if .BasicInfo.Contacts }}
 <div class="sideSection contact">
+    <!-- Print Mode Controls -->
+    <div class="print-mode-controls" style="margin-bottom: 1rem; text-align: center;">
+        <button id="print-mode-btn" class="print-mode-button" type="button">
+            🖨️ Enable Print Mode (30s)
+        </button>
+        <div id="print-mode-status" class="print-mode-status" style="display: none;">
+            <span class="status-text">Print mode active: </span>
+            <span id="countdown">30</span>s remaining
+        </div>
+    </div>
     <ul>
-        {{ range .BasicInfo.Contacts }}
-        <li class="contact__item">
-            <i class="{{ .Icon }}"></i><span>{{ .Info | safeHTML }}</span>
+        {{ range $index, $contact := .BasicInfo.Contacts }}
+        {{ if eq $contact.Icon "fas fa-envelope" }}
+        <li class="contact__item" id="email">
+            <i class="{{ $contact.Icon }}" aria-hidden="true"></i>
+            <span>
+                <span class="email-placeholder email-blur"
+                      data-encoded="{{ $contact.Info | base64Encode }}"
+                      title="Click to reveal email">
+                    email@domain.com
+                </span>
+                <noscript>
+                    <span>Contact via email</span>
+                </noscript>
+            </span>
         </li>
+        {{ else if eq $contact.Icon "fas fa-phone" }}
+        <li class="contact__item" id="phone-{{ $index }}">
+            <i class="{{ $contact.Icon }}" aria-hidden="true"></i>
+            <span>
+                <span class="phone-placeholder phone-blur"
+                      data-encoded="{{ $contact.Info | base64Encode }}"
+                      title="Click to reveal phone number">
+                    +XX XXX XXX XXXX
+                </span>
+                <noscript>
+                    <span>Contact via phone</span>
+                </noscript>
+            </span>
+        </li>
+        {{ else }}
+        <li class="contact__item">
+            <i class="{{ $contact.Icon }}"></i><span>{{ $contact.Info | safeHTML }}</span>
+        </li>
+        {{ end }}
         {{ end }}
     </ul>
 </div>

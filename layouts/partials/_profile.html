@@ -1,7 +1,16 @@
 {{ if .Profile }}
 <div id="profile" class="section">
-    <div class="section__heading">
+    <div class="section__heading profile-row">
         <h2 class="section__title">{{ i18n "profile" }}</h2>
+        {{ if .Badges }}
+        <div class="badges">
+            {{ range .Badges }}
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="badge" title="{{ .title }}">
+                {{ if .icon }}<i class="{{ .icon }}" aria-hidden="true"></i> {{ end }}{{ .title }}
+            </a>
+            {{ end }}
+        </div>
+        {{ end }}
     </div>
     <div class="section__content">
         <p>{{ .Profile | safeHTML | emojify }}</p>

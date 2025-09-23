@@ -1,0 +1,51 @@
+// Custom text color overrides
+
+// Body text and paragraphs
+p, .section p, .sideSection p {
+    color: $color-body-text;
+}
+
+// List items (bullets and numbered lists)
+li, .section li, .sideSection li {
+    color: $color-list-text;
+}
+
+// Main headings
+h1, h2, h3, h4, h5, h6,
+.section__title,
+.sideSection__title,
+.section h1, .section h2, .section h3, .section h4, .section h5, .section h6,
+.sideSection h1, .sideSection h2, .sideSection h3, .sideSection h4, .sideSection h5, .sideSection h6 {
+    color: $color-heading-text;
+}
+
+// Experience section specific styling
+.experience ul li,
+.experience-item ul li,
+.job ul li {
+    color: $color-list-text;
+}
+
+// Skills section list items
+.skills ul li,
+.skills li {
+    color: $color-list-text;
+}
+
+// General text elements
+.section__content,
+.sideSection__content {
+    color: $color-body-text;
+}
+
+// Print-specific text colors
+@media print {
+    p, li, .section p, .section li, .sideSection p, .sideSection li {
+        color: #333 !important; // Ensure good contrast for printing
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    .section__title, .sideSection__title {
+        color: #000 !important; // Black headings for printing
+    }
+}

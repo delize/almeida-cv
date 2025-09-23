@@ -27,6 +27,27 @@
             {{ partial "_languages.html" $data }}
             {{ partial "_diplomas.html" $data }}
             {{ partial "_interests.html" $data }}
+            {{ partial "_education-side.html" $data }}
+        </div>
+    </div>
+
+    <!-- Print Instructions Banner - positioned outside content flow -->
+    <div id="print-banner" class="print-banner">
+        <div class="print-banner__content">
+            <span class="print-banner__icon">🖨️</span>
+            <div class="print-banner__text">
+                <strong>For Best Print Results:</strong>
+                <span class="print-banner__instructions">
+                    <span class="print-banner__step">Use <strong>Chrome</strong></span>
+                    <span class="print-banner__separator">•</span>
+                    <span class="print-banner__step">Click <strong>"Enable Print Mode"</strong></span>
+                    <span class="print-banner__separator">•</span>
+                    <span class="print-banner__region">EU: <strong>A4 + Default margins</strong></span>
+                    <span class="print-banner__separator">•</span>
+                    <span class="print-banner__region">US: <strong>Letter + No margins</strong></span>
+                </span>
+            </div>
+            <button class="print-banner__close" onclick="document.getElementById('print-banner').style.display='none'" aria-label="Close print instructions">✕</button>
         </div>
     </div>
 </body>

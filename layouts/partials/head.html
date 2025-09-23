@@ -4,12 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Site.Title }}</title>
+    {{ if .Site.Params.enableRobotsNoIndex }}
+    <meta name="robots" content="noindex, nofollow, noarchive, nocache, nosnippet" />
+    {{ end }}
+
+    <!-- Favicon -->
+    {{ if .Site.Params.favicon }}
+    <link rel="icon" type="image/png" href="{{ .Site.Params.favicon }}">
+    {{ end }}
+
+    <!-- Print optimization meta tags for better PDF generation -->
+    <meta name="print-color-adjust" content="exact">
 
     <link rel="canonical" href="{{ .Permalink }}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous" media="screen,print" />
 
     {{ if .Site.Params.enableMetaTags }}
@@ -25,7 +36,263 @@
         {{ end }}
     {{ end }}
 
+    <!-- Structured Data for SEO and Resume Parsing -->
+    {{ if .Site.Params.enableStructuredData }}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "{{ $data.BasicInfo.FirstName }} {{ $data.BasicInfo.LastName }}",
+        {{ with $data.BasicInfo.Photo }}
+        "image": "{{ . | absURL }}",
+        {{ end }}
+        {{ with $data.Profile }}
+        "description": "{{ . | htmlUnescape | plainify | truncate 160 }}",
+        {{ end }}
+        {{ if $data.Experience }}
+        {{ $firstJob := index $data.Experience 0 }}
+        {{ if $firstJob.Positions }}
+        {{ $firstPosition := index $firstJob.Positions 0 }}
+        "jobTitle": "{{ $firstPosition.Title }}",
+        {{ end }}
+        "worksFor": {
+            "@type": "Organization",
+            "name": "{{ $firstJob.Employer }}"
+        },
+        {{ end }}
+        {{ range $data.BasicInfo.Contacts }}{{ if eq .Icon "fas fa-envelope" }}"email": "{{ .Info }}",{{ break }}{{ end }}{{ end }}
+        "url": "{{ .Site.BaseURL }}",
+        {{ if $data.Badges }}
+        "sameAs": [
+            {{ range $index, $badge := $data.Badges }}
+            "{{ $badge.url }}"{{ if ne $index (sub (len $data.Badges) 1) }},{{ end }}
+            {{ end }}
+        ],
+        {{ end }}
+        {{ if $data.Education }}
+        "alumniOf": [
+            {{ range $index, $edu := $data.Education }}
+            {
+                "@type": "EducationalOrganization",
+                "name": "{{ $edu.Place }}"
+            }{{ if ne $index (sub (len $data.Education) 1) }},{{ end }}
+            {{ end }}
+        ],
+        {{ end }}
+        {{ if $data.Languages }}
+        "knowsLanguage": [
+            {{ range $index, $lang := $data.Languages }}
+            {
+                "@type": "Language",
+                "name": "{{ $lang.Name }}"
+            }{{ if ne $index (sub (len $data.Languages) 1) }},{{ end }}
+            {{ end }}
+        ]
+        {{ end }}
+    }
+    </script>
+    {{ end }}
+
     {{ if .Site.Config.Services.GoogleAnalytics.ID }}
         {{ template "_internal/google_analytics.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.enableContactObfuscation }}
+    <!-- Contact Obfuscation and Print Mode Script -->
+    <script>
+    (function () {
+      // Base64 decode function
+      function decodeBase64(str) {
+        try {
+          return atob(str);
+        } catch (e) {
+          return '';
+        }
+      }
+
+      // Simplified decoding: just Base64
+      function decodeContact(encoded) {
+        return decodeBase64(encoded);
+      }
+
+      function revealEmail(placeholder) {
+        var encoded = placeholder.getAttribute('data-encoded');
+        if (!encoded) return;
+
+        var addr = decodeContact(encoded);
+        if (!addr) return;
+
+        // Remove blur and update content
+        placeholder.classList.remove('email-blur');
+        placeholder.classList.add('email-revealed');
+        placeholder.textContent = addr;
+
+        // Convert to clickable link
+        var link = document.createElement('a');
+        link.href = 'mailto:' + addr;
+        link.textContent = addr;
+        link.className = 'contact__link email-revealed';
+
+        placeholder.parentNode.replaceChild(link, placeholder);
+      }
+
+      function revealPhone(placeholder) {
+        var encoded = placeholder.getAttribute('data-encoded');
+        if (!encoded) return;
+
+        var phone = decodeContact(encoded);
+        if (!phone) return;
+
+        // Remove blur and update content
+        placeholder.classList.remove('phone-blur');
+        placeholder.classList.add('phone-revealed');
+        placeholder.textContent = phone;
+
+        // Convert to clickable link
+        var link = document.createElement('a');
+        link.href = 'tel:' + phone.replace(/\s/g, '');
+        link.textContent = phone;
+        link.className = 'contact__link phone-revealed';
+
+        placeholder.parentNode.replaceChild(link, placeholder);
+      }
+
+      // Click-to-reveal
+      document.addEventListener('click', function (e) {
+        var emailPlaceholder = e.target.closest('.email-placeholder.email-blur');
+        var phonePlaceholder = e.target.closest('.phone-placeholder.phone-blur');
+
+        if (emailPlaceholder) {
+          e.preventDefault();
+          revealEmail(emailPlaceholder);
+        } else if (phonePlaceholder) {
+          e.preventDefault();
+          revealPhone(phonePlaceholder);
+        }
+      });
+
+      // Print Mode Controller - Secure print revelation with user interaction
+      var printModeTimeout;
+      var countdownInterval;
+      var printModeRevealedItems = []; // Track items revealed by print mode
+
+      function enablePrintMode() {
+        // Add class to body to enable print revelation
+        document.body.classList.add('print-mode-active');
+
+        // Add timestamp for watermarking
+        var timestamp = new Date().toISOString().replace('T', ' ').substring(0, 19) + ' UTC';
+        document.body.setAttribute('data-print-timestamp', timestamp);
+
+        // Track and automatically reveal contact information that wasn't already revealed
+        printModeRevealedItems = []; // Reset tracking array
+        var emailPlaceholders = document.querySelectorAll('.email-placeholder.email-blur');
+        var phonePlaceholders = document.querySelectorAll('.phone-placeholder.phone-blur');
+
+        emailPlaceholders.forEach(function(placeholder) {
+          var encoded = placeholder.getAttribute('data-encoded');
+          if (encoded) {
+            var addr = decodeContact(encoded);
+            if (addr) {
+              placeholder.classList.remove('email-blur');
+              placeholder.classList.add('email-revealed');
+              placeholder.textContent = addr;
+              // Remove security vulnerability - don't store decoded content in DOM
+              printModeRevealedItems.push({element: placeholder, type: 'email', originalText: 'email@domain.com'});
+            }
+          }
+        });
+
+        phonePlaceholders.forEach(function(placeholder) {
+          var encoded = placeholder.getAttribute('data-encoded');
+          if (encoded) {
+            var phone = decodeContact(encoded);
+            if (phone) {
+              placeholder.classList.remove('phone-blur');
+              placeholder.classList.add('phone-revealed');
+              placeholder.textContent = phone;
+              // Remove security vulnerability - don't store decoded content in DOM
+              printModeRevealedItems.push({element: placeholder, type: 'phone', originalText: '+XX XXX XXX XXXX'});
+            }
+          }
+        });
+
+        // Show status, hide button
+        var printBtn = document.getElementById('print-mode-btn');
+        var printStatus = document.getElementById('print-mode-status');
+        if (printBtn) printBtn.style.display = 'none';
+        if (printStatus) printStatus.style.display = 'block';
+
+        // Start 600-second countdown
+        var timeLeft = 600;
+        var countdownEl = document.getElementById('countdown');
+
+        countdownInterval = setInterval(function() {
+          timeLeft--;
+          if (countdownEl) countdownEl.textContent = timeLeft;
+
+          if (timeLeft <= 0) {
+            disablePrintMode();
+          }
+        }, 1000);
+
+        // Auto-disable after 600 seconds
+        printModeTimeout = setTimeout(disablePrintMode, 600000);
+      }
+
+      function disablePrintMode() {
+        // Remove print mode class and timestamp
+        document.body.classList.remove('print-mode-active');
+        document.body.removeAttribute('data-print-timestamp');
+
+        // Hide only the items that were revealed by print mode (not user clicks)
+        printModeRevealedItems.forEach(function(item) {
+          if (item.type === 'email') {
+            item.element.classList.remove('email-revealed');
+            item.element.classList.add('email-blur');
+            item.element.textContent = item.originalText; // Restore placeholder text
+          } else if (item.type === 'phone') {
+            item.element.classList.remove('phone-revealed');
+            item.element.classList.add('phone-blur');
+            item.element.textContent = item.originalText; // Restore placeholder text
+          }
+        });
+
+        // Clear the tracking array
+        printModeRevealedItems = [];
+
+        // Clear timers
+        if (printModeTimeout) {
+          clearTimeout(printModeTimeout);
+          printModeTimeout = null;
+        }
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
+        }
+
+        // Show button, hide status
+        var printBtn = document.getElementById('print-mode-btn');
+        var printStatus = document.getElementById('print-mode-status');
+        var countdownEl = document.getElementById('countdown');
+
+        if (printBtn) printBtn.style.display = 'inline-block';
+        if (printStatus) printStatus.style.display = 'none';
+        if (countdownEl) countdownEl.textContent = '600';
+      }
+
+      // Attach click handler when DOM is ready
+      document.addEventListener('DOMContentLoaded', function() {
+        var printBtn = document.getElementById('print-mode-btn');
+        if (printBtn) {
+          printBtn.addEventListener('click', enablePrintMode);
+        }
+      });
+
+      // Disable print mode on page navigation
+      window.addEventListener('beforeunload', disablePrintMode);
+
+    })();
+    </script>
     {{ end }}
 </head>

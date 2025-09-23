@@ -1,0 +1,40 @@
+{{ if .Education }}
+<div class="sideSection">
+    <div class="sideSection__heading">
+        <h2 class="sideSection__title">{{ i18n "education" }}</h2>
+        <div class="sideSection__title__divider"></div>
+    </div>
+    <div class="sideSection__content">
+        <div class="education__list">
+            {{ $length := len .Education }}
+            {{ range $index, $edu := .Education }}
+                <div class="education__item">
+                    <h3 class="education__title">{{ $edu.Place | safeHTML }}</h3>
+                    <h4 class="education__place">{{ $edu.Course | safeHTML }}</h4>
+                    <h4 class="education__date">{{ $edu.Date | safeHTML }}</h4>
+                    {{ if $edu.Details }}
+                    <div class="education__description">
+                        {{ if eq (printf "%T" $edu.Details) "string" }}
+                        <p><span class="bold">Details:</span> {{ $edu.Details | safeHTML }}</p>
+                        {{ else }}
+                        <div class="details__list">
+                            <span class="bold">Details:</span>
+                            <ul>
+                                {{ range $edu.Details }}
+                                <li>{{ . | safeHTML }}</li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+
+                {{ if lt $index (sub $length 1) }}
+                <div class="education__separator"></div>
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}
