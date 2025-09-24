@@ -1,0 +1,20 @@
+// Education section color customizations
+// Updates institution names, degrees, and dates to match body text
+
+.education-side {
+    // Institution names - change from heading color to body text color
+    &__institution {
+        color: $color-right-col-body-text !important;
+    }
+
+    // Degree titles - already using body text color, but ensuring consistency
+    &__degree {
+        color: $color-right-col-body-text !important;
+    }
+
+    // Date periods - change from secondary color to body text color
+    &__period {
+        color: $color-right-col-body-text !important;
+        font-style: normal; // Remove italic for consistency
+    }
+}

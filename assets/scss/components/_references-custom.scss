@@ -42,4 +42,10 @@
         max-width: 100%;
         word-wrap: break-word;
     }
+
+    // Update colors to match body text instead of dark heading color
+    &__name,
+    &__relation {
+        color: $color-right-col-body-text !important;
+    }
 }
