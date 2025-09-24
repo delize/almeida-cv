@@ -5,8 +5,8 @@
         {{ if .Badges }}
         <div class="badges">
             {{ range .Badges }}
-            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="badge" title="{{ .title }}">
-                {{ if .icon }}<i class="{{ .icon }}" aria-hidden="true"></i> {{ end }}{{ .title }}
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="badge" title="{{ .name }}">
+                {{ if .icon }}<i class="{{ .icon }}" aria-hidden="true"></i> {{ end }}{{ .name }}
             </a>
             {{ end }}
         </div>

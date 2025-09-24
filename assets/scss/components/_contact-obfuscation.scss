@@ -26,6 +26,18 @@
     }
 }
 
+// References styling extends contact obfuscation
+.references {
+    &__contact {
+        position: relative;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+}
+
 // Obfuscation styles for email and phone
 .email-placeholder,
 .phone-placeholder {

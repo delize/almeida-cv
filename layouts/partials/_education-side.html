@@ -1,6 +1,6 @@
 {{ if .Education }}
 <div class="sideSection">
-    <div class="sideSection__heading">
+    <div class="sideSection__heading{{ if .Site.Params.centerSidebarHeaders }} sideSection__heading--center{{ end }}">
         <h2 class="sideSection__title">{{ i18n "education" }}</h2>
         <div class="sideSection__title__divider"></div>
     </div>

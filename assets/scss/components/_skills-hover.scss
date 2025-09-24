@@ -1,0 +1,13 @@
+// Remove all hover effects from skills section
+
+// Disable category hover effect (when hovering over "Infrastructure", "Web Development", etc.)
+.skills__group span:hover ~ li {
+    background-color: transparent !important;
+    color: inherit !important;
+}
+
+// Disable individual item hover effect (when hovering over "Okta", "SSO", etc.)
+.skills__group li:hover {
+    background-color: transparent !important;
+    color: inherit !important;
+}

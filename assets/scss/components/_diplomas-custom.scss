@@ -1,0 +1,164 @@
+// Professional Diplomas Section Styling
+.diplomas {
+    &__item {
+        margin-bottom: 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        min-height: 1.8rem;
+    }
+
+    &__left {
+        display: flex;
+        align-items: flex-start;
+        flex: 1;
+        min-width: 0;
+    }
+
+    &__right {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        flex-shrink: 0;
+        line-height: 1.4; // Match text line-height for consistent alignment
+    }
+
+    &__link {
+        color: $color-right-col-body-text !important;
+        text-decoration: none;
+        font-weight: 500;
+        line-height: 1.4;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        max-width: 100%;
+
+        &:hover {
+            color: $color-primary !important;
+        }
+
+        // Remove default link styling
+        &:visited {
+            color: $color-right-col-body-text !important;
+
+            &:hover {
+                color: $color-primary !important;
+            }
+        }
+    }
+
+    &__name {
+        color: $color-right-col-body-text;
+        font-weight: 500;
+        line-height: 1.4;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        max-width: 100%;
+    }
+
+    &__link-icon {
+        font-family: 'Material Icons';
+        color: $color-right-col-body-text;
+        font-size: 1.2rem;
+        opacity: 0.7;
+        transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            color: $color-primary;
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+    }
+
+    &__status {
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 0.25rem 0.7rem;
+        border-radius: 1rem;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+        transition: all 0.2s ease-in-out;
+
+        // Status-specific styling with elegant design
+        &--expired {
+            color: #8b5a3c;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ebebeb 100%);
+            border: 1px solid #d0d0d0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        &--active {
+            color: #2d5a27;
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edc4 100%);
+            border: 1px solid #a5d6a7;
+            box-shadow: 0 1px 3px rgba(76, 175, 80, 0.15);
+        }
+
+        &--valid {
+            color: #2d5a27;
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edc4 100%);
+            border: 1px solid #a5d6a7;
+            box-shadow: 0 1px 3px rgba(76, 175, 80, 0.15);
+        }
+    }
+
+    // Responsive behavior for smaller screens
+    @media (max-width: 400px) {
+        &__content {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+            min-height: auto;
+        }
+
+        &__right {
+            align-self: flex-end;
+        }
+
+        &__status {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+        }
+
+        &__link-icon {
+            font-size: 1.1rem;
+        }
+    }
+
+    // Print mode optimizations
+    @media print {
+        &__link {
+            color: black !important;
+        }
+
+        &__link-icon {
+            display: none !important;
+        }
+
+        &__status {
+            border: 1px solid #999 !important;
+            background: #f8f8f8 !important;
+            color: #666 !important;
+            box-shadow: none !important;
+        }
+    }
+}
+
+// Override any default list styling within sideSection for diplomas
+.sideSection .diplomas {
+    li {
+        list-style: none;
+        margin-bottom: 0;
+    }
+}

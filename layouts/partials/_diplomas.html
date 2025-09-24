@@ -1,12 +1,30 @@
 {{ if .Diplomas }}
 <div class="sideSection">
-    <div class="sideSection__heading">
+    <div class="sideSection__heading{{ if .Site.Params.centerSidebarHeaders }} sideSection__heading--center{{ end }}">
         <h2 class="sideSection__title">{{ i18n "diplomas" }}</h2>
     </div>
     <div class="sideSection__content">
-        <ul>
+        <ul class="diplomas">
             {{ range .Diplomas }}
-            <li>{{ . | safeHTML }}</li>
+            <li class="diplomas__item">
+                <div class="diplomas__content">
+                    <div class="diplomas__left">
+                        {{ if .URL }}
+                        <a href="{{ .URL | safeURL }}" class="diplomas__link" target="_blank" rel="noopener">{{ .Name | safeHTML }}</a>
+                        {{ else }}
+                        <span class="diplomas__name">{{ .Name | safeHTML }}</span>
+                        {{ end }}
+                    </div>
+                    <div class="diplomas__right">
+                        {{ if .URL }}
+                        <span class="diplomas__link-icon">link</span>
+                        {{ end }}
+                        {{ if .Status }}
+                        <span class="diplomas__status diplomas__status--{{ .Status | lower }}">{{ .Status }}</span>
+                        {{ end }}
+                    </div>
+                </div>
+            </li>
             {{ end }}
         </ul>
     </div>

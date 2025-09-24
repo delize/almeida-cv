@@ -223,8 +223,8 @@
         if (printBtn) printBtn.style.display = 'none';
         if (printStatus) printStatus.style.display = 'block';
 
-        // Start 600-second countdown
-        var timeLeft = 600;
+        // Start 30-second countdown
+        var timeLeft = 30;
         var countdownEl = document.getElementById('countdown');
 
         countdownInterval = setInterval(function() {
@@ -236,8 +236,8 @@
           }
         }, 1000);
 
-        // Auto-disable after 600 seconds
-        printModeTimeout = setTimeout(disablePrintMode, 600000);
+        // Auto-disable after 30 seconds
+        printModeTimeout = setTimeout(disablePrintMode, 29000);
       }
 
       function disablePrintMode() {
@@ -278,7 +278,7 @@
 
         if (printBtn) printBtn.style.display = 'inline-block';
         if (printStatus) printStatus.style.display = 'none';
-        if (countdownEl) countdownEl.textContent = '600';
+        if (countdownEl) countdownEl.textContent = '30';
       }
 
       // Attach click handler when DOM is ready

@@ -1,0 +1,14 @@
+// Custom layout styling overrides
+// Sidebar positioning fixes to eliminate white gaps
+
+.content {
+    &__right {
+        right: 0; // Was: 1rem - removes white gap on right side
+    }
+
+    &__swapped {
+        &__right {
+            left: 0; // Was: 1rem - removes white gap on left side when swapped
+        }
+    }
+}

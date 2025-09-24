@@ -1,37 +1,47 @@
 BasicInfo:
-  FirstName: Inês
-  LastName: Almeida
+  FirstName: Andrew
+  LastName: Doering
   Photo: img/avatar.jpg
   Contacts:
+    # - Icon: fas fa-phone
+    #   Info: +46 72 144 8881
     - Icon: fas fa-phone
-      Info: +44 123 456 789
+      Info: +46 72 144 56 789
     - Icon: fas fa-envelope
-      Info: visible@email.com
-    - Icon: fas fa-globe
-      Info: <a class="contact__link" href="https://ines-almeida.com" target="_blank">ines-almeida.com</a>
+      Info: ad@andrewdoering.org
     - Icon: fas fa-map-marker-alt
-      Info: Portugal
+      Info: Dallas, Texas
+    - Icon: fas fa-passport
+      Info: American
 
 # Professional badges/links displayed in profile section
 Badges:
-  - title: LinkedIn
-    url: https://linkedin.com/in/inesalmeida
-    icon: fab fa-linkedin
-  - title: GitHub
-    url: https://github.com/ineesalmeida
-    icon: fab fa-github
-  - title: Website
-    url: https://ines-almeida.com
+  - name: LinkedIn
+    icon: fa-brands fa-linkedin-in
+    url: https://www.linkedin.com/in/andrewdoering
+    desc: 
+  - name: Github
+    icon: fa-brands fa-github
+    url: https://github.com/delize
+    desc: 
+  - name: Blog
+    icon: fas fa-blog
+    url: https://andrewdoering.org/blog
+    desc: 
+  - name: Site
     icon: fas fa-globe
+    url: https://andrewdoering.org
+    desc: 
 
-Profile: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+Profile: Innovative Technical Operations Engineer with a proven track record in IAM Operations, process improvement, and cost optimization. Passionate about leveraging advanced and fledgling technologies to drive efficiency and compliance in high-stakes environments.
 
 Experience:
-  - Employer: Super Cool Company
-    Place: Oxford, UK
+  - Employer: EQT Group
+    Place: Stockholm, Sweden
     Positions:
-      - Title: Software Engineer
-        Date: Jan 2020 - Present
+      - Title: Sr. Technical Operations Engineer
+        Date: Nov. 2022 - Present
         Details:
           - Arcu vitae elementum curabitur vitae nunc sed velit
           - Viverra aliquet eget sit amet tellus cras adipiscing
@@ -78,73 +88,122 @@ Education:
     Details: Specialised in data analysis
 
 References:
-  - Name: Person One
-    Relation: Co-worker at Super Cool Company
+  - Name: Fredrik Lind
+    Relation: Co-worker at EQT AB
     Contacts:
-    - Icon: fas fa-phone
-      Info: +44 123 456 790
-    - Icon: fas fa-envelope
-      Info: contact@person-one.com
     - Icon: fas fa-map-marker-alt
-      Info: Melbourne, Australia
-  - Name: Person Two
-    Relation: Boss at Super Cool Company
+      Info: Sweden
+  - Name: Pavel Danilochkin
+    Relation: Co-worker at ThousandEyes, Cisco
     Contacts:
-    - Icon: fas fa-phone
-      Info: +44 123 456 791
-    - Icon: fas fa-envelope
-      Info: contact@person-two.com
+    # - Icon: fas fa-phone
+    #   Info: +44 123 456 790
+    # - Icon: fas fa-envelope
+    #   Info: contact@person-one.com
     - Icon: fas fa-map-marker-alt
-      Info: Sydney, Australia
+      Info: USA
+  - Name: Ludvig Stålberg
+    Relation: Colleague at EQT, Manager at Epidemic Sound
+    Contacts:
+    # - Icon: fas fa-phone
+    #   Info: +44 123 456 791
+    # - Icon: fas fa-envelope
+    #   Info: contact@person-two.com
+    - Icon: fas fa-map-marker-alt
+      Info: Sweden
+  - Name: Jon Kendle
+    Relation: Co-worker at EQT
+    Contacts:
+    # - Icon: fas fa-phone
+    #   Info: +44 123 456 791
+    # - Icon: fas fa-envelope
+    #   Info: contact@person-two.com
+    - Icon: fas fa-map-marker-alt
+      Info: Sweden
+  - Name: Tom Bensted
+    Relation: Co-worker at ThousandEyes, Cisco
+    Contacts:
+    # - Icon: fas fa-phone
+    #   Info: +44 123 456 791
+    # - Icon: fas fa-envelope
+    #   Info: contact@person-two.com
+    - Icon: fas fa-map-marker-alt
+      Info: Great Britain
+  - Name: Phill Jones
+    Relation: Co-worker at ThousandEyes, Cisco
+    Contacts:
+    # - Icon: fas fa-phone
+    #   Info: +44 123 456 791
+    # - Icon: fas fa-envelope
+    #   Info: contact@person-two.com
+    - Icon: fas fa-map-marker-alt
+      Info: USA
 
 
 Skills:
-  - Family: Programming
+  - Family: Infrastructure
     Items:
-      - Python
-      - HTML (including Jinja)
-      - Javascript
-      - CSS
-      - SASS
-      - SQL
-      - C#
-      - Bash
-      - MATLAB
-  - Family: Frameworks
+      - Okta
+      - SSO
+      - SAML
+      - OIDC
+      - APIs
+      - IaaC
+      - SCIM
+      - Terraform
+      - Hashicorp Cloud
+      - Github Actions
+      - Docker
+      - Google Workspace
+      - Mobile Device Management
+      - Atlassian
+      - Networking
+      - SQL (Postgres)
+  - Family: Web Development
     Items:
-      - Django
-      - Flask
       - Hugo
-      - React
+      - Jekyll
+      - HTML
+      - CSS
   - Family: Developer Tools
     Items:
+      - VS Code
+      - Cursor
+      - Bash/ZSH
+      - Python
+      - Scripting
       - Git
-      - Docker
-      - Jenkins
-      - AWS
   - Family: Misc
     Items:
-      - Adobe Tools
-      - LaTeX
+      - ChatGPT
+      - Anthropic / Claude
+      - Prompt Engineering
+      - LLM Usage
 
 Languages:
-  - Name: Portuguese
-    Level: Native
   - Name: English
-    Level: C2
-  - Name: Spanish
-    Level: B1
-  - Name: German
-    Level: B1
+    Level: Native
+  - Name: Swedish
+    Level: B2
 
 Diplomas:
-  - ISTQB Tester Certification (2019)
-  - English Cambridge CAE (2009)
+  - Name: Okta Certified Administrator
+    # Status: Active
+    URL: https://www.credly.com/badges/ff7d747d-0b4c-41b0-bab8-299e1d0cf102/public_url
+  - Name: Okta Certified Professional 
+    # Status: Active
+    URL: https://www.credly.com/badges/d616f3b7-e314-43c8-8320-9c717cf16b53/public_url
+  - Name: Cisco Certified Network Professional
+    Status: Expired
+  - Name: Cisco Certified Network Associate
+    Status: Expired
 
 Interests:
-  - Bouldering
+  - Snowboarding
+  - Photography
   - Cooking
-  - Windsurfing
-  - Bossa Nova
-  - Design
+  - Weight Training
+  - Traveling
   - Languages
+  - Culture
+  - Visual Art

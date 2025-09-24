@@ -14,16 +14,16 @@ title = "Example - CV"
 enableMetaTags = true
 colorLight = "#fff"
 colorDark = "#666"
-colorPageBackground = "#ddd"
-colorPrimary = "#e3bfb8"
-colorSecondary = "#aaa"
+colorPageBackground = "#ccc"
+colorPrimary = "#58595b"
+colorSecondary = "#f68d2e"
 
 # Text color options
 colorBodyText = "#555"
 colorListText = "#444"
-colorHeadingText = "#333"
-colorIconPrimary = "#fff"
-colorIconBackground = "#e3bfb8"
+colorHeadingText = "#f68d2e"
+colorIconPrimary = "#000"
+colorIconBackground = "#eceef1"
 colorRightColumnBackground = "#f5f5f5"
 colorRightColumnHeadingText = "#666"
 colorRightColumnBodyText = "#666"
@@ -45,4 +45,6 @@ enableRobotsNoIndex = false
 favicon = "/favicon.png"
 # Enable underline bar style (thin gray line) instead of default full-width bar
 enableUnderlineBar = true
+# Center align sidebar section headers (Skills, Education, Interests, etc.)
+centerSidebarHeaders = true
 

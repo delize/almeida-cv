@@ -1,0 +1,14 @@
+// Center alignment for sidebar section headers
+// Activated when centerSidebarHeaders = true in config
+
+.sideSection__heading--center {
+    text-align: center;
+
+    .sideSection__title {
+        text-align: center;
+    }
+
+    .sideSection__title__divider {
+        margin: 0 auto;
+    }
+}

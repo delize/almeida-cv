@@ -18,10 +18,40 @@
                             {{ .Relation | safeHTML}}
                         </h4>
                     </div>
-                    {{ range .Contacts }}
+                    {{ range $index, $contact := .Contacts }}
+                        {{ if eq $contact.Icon "fas fa-envelope" }}
                         <li class="references__contact">
-                            <i class="{{ .Icon }}"></i><span>{{ .Info | safeHTML }}</span>
+                            <i class="{{ $contact.Icon }}" aria-hidden="true"></i>
+                            <span>
+                                <span class="email-placeholder email-blur"
+                                      data-encoded="{{ $contact.Info | base64Encode }}"
+                                      title="Click to reveal email">
+                                    email@domain.com
+                                </span>
+                                <noscript>
+                                    <span>Contact via email</span>
+                                </noscript>
+                            </span>
                         </li>
+                        {{ else if eq $contact.Icon "fas fa-phone" }}
+                        <li class="references__contact">
+                            <i class="{{ $contact.Icon }}" aria-hidden="true"></i>
+                            <span>
+                                <span class="phone-placeholder phone-blur"
+                                      data-encoded="{{ $contact.Info | base64Encode }}"
+                                      title="Click to reveal phone number">
+                                    +XX XXX XXX XXXX
+                                </span>
+                                <noscript>
+                                    <span>Contact via phone</span>
+                                </noscript>
+                            </span>
+                        </li>
+                        {{ else }}
+                        <li class="references__contact">
+                            <i class="{{ $contact.Icon }}"></i><span>{{ $contact.Info | safeHTML }}</span>
+                        </li>
+                        {{ end }}
                     {{ end }}
                 </div>
             </div>

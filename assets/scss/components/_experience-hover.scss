@@ -1,0 +1,71 @@
+// Custom styling for experience section
+// Removes all hover effects and sets proper colors
+
+.experience {
+    &__job {
+        // Remove all transitions and hover effects
+        // No hover effects applied
+
+        // Disable hover effects completely
+        &:hover {
+            // Override any inherited hover styles
+            background-color: transparent !important;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+    }
+
+    // Set company and position colors to primary (grayish) instead of secondary (orange)
+    &__company {
+        color: $color-primary !important;
+
+        &:hover {
+            color: $color-primary !important;
+        }
+    }
+
+    &__position {
+        color: $color-primary !important;
+
+        &:hover {
+            color: $color-primary !important;
+        }
+    }
+
+    // Disable any existing transitions for dates and other elements
+    &__date,
+    &__place {
+        transition: none !important;
+
+        &:hover {
+            color: $color-secondary !important; // Keep orange color for dates/places
+        }
+    }
+
+    // Disable badge transitions and hover effects
+    &__badges .experience__badge {
+        transition: none !important;
+
+        &:hover {
+            background-color: $color-icon-background !important;
+            color: $color-icon-primary !important;
+            transform: none !important;
+        }
+    }
+
+    // Disable bullet point hover effects
+    &__bullet {
+        transition: none !important;
+
+        &:hover {
+            color: inherit !important;
+        }
+    }
+
+    // Disable any text color transitions on hover
+    * {
+        &:hover {
+            transition: none !important;
+        }
+    }
+}
