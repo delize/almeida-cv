@@ -6,32 +6,57 @@
     <div class="section__content">
         <div class="experience">
             {{ range .Experience }}
+            {{ $hasBadges := false }}
+            {{ range .Positions }}
+              {{ if .Badges }}
+                {{ $hasBadges = true }}
+              {{ end }}
+            {{ end }}
             {{ if .Class }}
-            <div class="experience__item {{ .Class }}">
+            <div class="experience__item {{ .Class }}{{ if $hasBadges }} experience__item--has-badges{{ end }}">
             {{ else }}
-            <div class="experience__item">
+            <div class="experience__item{{ if $hasBadges }} experience__item--has-badges{{ end }}">
             {{ end }}
                 <div class="experience__header">
                     <h3 class="experience__company">
+                        {{ if .Link }}
+                        <a href="{{ .Link }}" target="_blank" rel="noopener noreferrer" class="experience__company-link">
+                            {{ .Employer | safeHTML }}
+                            {{ if .Icon }}<span class="material-icons experience__company-icon">{{ .Icon }}</span>{{ end }}
+                        </a>
+                        {{ else }}
                         {{ .Employer | safeHTML }}
+                        {{ end }}
                     </h3>
                     <h3 class="experience__place">{{ .Place | safeHTML }}</h3>
                 </div>
                 {{ range .Positions }}
-                <div class="experience__job">
+                <div class="experience__job{{ if .Badges }} experience__job--with-badges{{ end }}">
                     <div class="experience__subheader">
                         <h4 class="experience__position">
                             {{ .Title | safeHTML}}
                         </h4>
                         <h3 class="experience__date">{{ .Date | safeHTML }}</h3>
                     </div>
+                    {{ if .Details }}
                     <ul>
                         {{ range .Details }}
                         <li class="experience__bullet">
-                            {{ . | safeHTML }}
+                            {{ $detail := . }}
+                            {{ if (index $detail "Description") }}
+                                {{ $detail.Description | safeHTML }}
+                                {{ if and $detail.LinkText $detail.LinkURL }}
+                                    <a href="{{ $detail.LinkURL }}" target="_blank" rel="noopener noreferrer" class="experience__detail-link">
+                                        {{ $detail.LinkText }}
+                                    </a>
+                                {{ end }}
+                            {{ else }}
+                                {{ $detail | safeHTML }}
+                            {{ end }}
                         </li>
                         {{ end }}
                     </ul>
+                    {{ end }}
                     <div class="experience__badges">
                         <ul>
                             {{ range .Badges }}

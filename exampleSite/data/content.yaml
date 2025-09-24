@@ -38,54 +38,157 @@ Profile: Innovative Technical Operations Engineer with a proven track record in 
 
 Experience:
   - Employer: EQT Group
+    Link: 'https://eqtgroup.com'
+    Icon: link
     Place: Stockholm, Sweden
     Positions:
       - Title: Sr. Technical Operations Engineer
         Date: Nov. 2022 - Present
         Details:
-          - Arcu vitae elementum curabitur vitae nunc sed velit
-          - Viverra aliquet eget sit amet tellus cras adipiscing
-          - Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-          - Nisl tincidunt eget nullam non nisi est
-          - Sed viverra tellus in hac.
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        Badges: ['Python', 'Django', 'OOP', 'Javascript', 'HTML', 'CSS', 'Agile']
-      - Title: Software Tester
-        Date: Mar 2019 - Jan 2020
-        Details:
-          - Nisl tincidunt eget nullam non nisi est
-          - Sed viverra tellus in hac.
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        Badges: ['Python', 'BDD', 'Selenium', 'OOP', 'Agile']
-  - Employer: Another super cool company
-    Place: Lisbon, PT
+
+        - Description: 'Introduced <strong>DORA-compliant Terraform configurations</strong>, additionally enabling other teams to <strong>self-service configurations</strong>, setups, and streamline their workflows.'
+          LinkText: Blog Post
+          LinkURL: 'https://andrewdoering.org/blog/2025/okta-terraform-how-we-planned-it/'
+
+        - Description: 'Led <strong>IAM operations for ~5,000 users</strong>, completing all aspects of <strong>Okta Identity Engine</strong> upgrade(s), achieving <strong>enhanced regulatory compliance</strong> and <strong>seamless access</strong> for employees and contractors.'
+          LinkText: Okta Identity Engine
+          LinkURL: 'https://andrewdoering.org/blog/2023/oie-fastpass-devicetrust-deployment/'
+
+        - Description: 'Implemented <strong>Self-Service Processes</strong> for End Users to access Applications, Groups, and other Memberships through <strong>Entitlement Management and Identity Governance</strong> (via <strong>Lumos</strong>). Resulting in a reduction of Tech Support Tickets by 64%.'
+
+        - Description: 'Implemented <strong>Device Assurance, Compliance, and Posturing</strong> for self-servicing issues with <strong>Kolide</strong>, enhancing <strong>security standards</strong> for external users.'
+          LinkText: Example
+          LinkURL: 'https://andrewdoering.org/blog/2024/kolide-local-administrators-check/'
+
+        - Description: 'Championed <strong>CI/CD pipelines</strong> and <strong>Agile practices</strong> (via Jira) to increase team velocity and improve deployment workflows.'
+
+        - Description: 'Reduced <strong>operational costs by $400K+</strong> using <strong>automation</strong> and <strong>tech debt cleanup</strong> initiatives.'
+
+        - Description: 'Advised <strong>EQT Ventures</strong> on due diligence and helped portfolio teams implement secure user systems, including authentication design for ADA (IVCEvidensia) using OAuth 2.0 + OIDC.'
+
+        - Description: 'Standardized <strong>cross-functional processes</strong> and <strong>technical implementations</strong>, including global <strong>cost center change workflows</strong> and the deployment of <strong>Managed Apple IDs</strong> via <strong>Apple Business Manager</strong>, ensuring <strong>regulatory alignment</strong>, <strong>centralized communication</strong>, and <strong>scalable SSO integration</strong> across multinational environments.'
+
+        - Description: 'Guided <strong>enterprise app configurations</strong> (AARO, EBX, MRI, Slack Enterprise) with <strong>secure SSO</strong> and <strong>domain integrations</strong>, in addition to modern services (<strong>Slack Enterprise Grid</strong>, <strong>Google Workspace</strong>).'
+
+        - Description: 'Mentored colleagues on tools like <strong>Workato</strong>, <strong>Jamf</strong>, and <strong>Okta</strong>, helping team members achieve <strong>technical certifications</strong> and improve skill sets (such as git, terraform, and bash scripting).'
+
+        - Description: 'Member of the <strong>Acquisition Planning and Execution Team</strong>, contributing to <strong>seamless technology integration</strong> during transitions.'
+          LinkText: Company Announcement
+          LinkURL: https://web.archive.org/web/20240227212022/https://eqtgroup.com/news/2022/eqt-combines-with-bpea-to-capture-growth-opportunities-in-asia/
+
+
+        - Description: '<strong>Technology Used:</strong> Google, Okta, Slack, Dropbox, Kolide, DTEX, Action1, etc.'
+
+        Badges: [
+          'DORA',
+          'Terraform',
+          'Enterprise Identity Management',
+          'Self-Service & Governance',
+          'Endpoint Assurance & Compliance',
+          'DevOps & Agile Engineering',
+          'Operational Efficiency & Automation',
+          'Strategic Investment Advisory',
+          'Process Standardization',
+          'Enterprise Application Integration',
+          'Technical Mentorship & Training',
+          'Acquisition & Integration'
+        ]
+
+  - Employer: Epidemic Sound
+    Link: 'https://epidemicsound.com'
+    Icon: link
+    Place: Stockholm, Sweden
     Positions:
-      - Title: Flow Cytometry Resource Specialist
-        Date: Jan 2018 - Mar 2019
+      - Title: Sr. IT Engineer
+        Date: Mar. 2021 - Nov. 2022
         Details:
-          - Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-          - Nisl tincidunt eget nullam non nisi est
-          - Sed viverra tellus in hac.
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        Badges: ['Python', 'HTML', 'CSS', 'C#/Unity']
-  - Employer: Institute of Neural Engineering
-    Place: Graz, AT
-    Class: "experience__extra_padding"
+          - Description: 'Created policies for broader company pertaining to Employee Lifecycle, IT Asset Management, and User Access Management. Created processes for IT Support team to follow.'
+          # - Description: 'Transition from Fleetsmith to Workspace One, completed ahead of scheduled deadline.'
+          # - Description: 'Restructure Okta from MSP, due to changing company dynamics, using Terraform for hyperscale.'
+          - Description: 'Detail Security & Process Gaps across various business lines for IPO, ITGC, & Audit Readiness.'
+
+  - Employer: ThousandEyes (Part of Cisco)
+    Link: 'https://thousandeyes.com'
+    Icon: link
+    Place: San Francisco, CA
+    # Class: "experience__extra_padding"
     Positions:
-      - Title: Master's Thesis Research Intern
-        Date: Oct 2016 - Jun 2017
+      - Title: Sr. IT Engineer (Cisco)
+        Date: Aug. 2020 - Aug. 2021
         Details:
-          - Arcu vitae elementum curabitur vitae nunc sed velit
-          - Viverra aliquet eget sit amet tellus cras adipiscing
-          - Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-          - Nisl tincidunt eget nullam non nisi est
-        Badges: ['Python', 'MATLAB', 'Data Processing', 'Paradigm Design']
+          - Description: 'Lead for business service integrations post-acquisition, discovery and post-close.'
+          - Description: "Integration and migrations of services from ThousandEyes' Stack into Cisco's Suite (such as; Google Workspace to Exchange, Project Management Tools, Collaboration Tools, etc)."
+          - Description: 'Transitioned MDM configuration from Workspace One to JAMF on End User Devices.'
+      - Title: Sr. IT Engineer
+        Date: Aug. 2017 - Aug. 2021
+        Details:
+          - Description: '<strong>Bootstrapped IT and infrastructure operations</strong> from the ground up as the company’s first IT employee, scaling systems to support <strong>500+ global employees</strong> across multiple offices.'
+          - Description: 'Team Lead for IT Engineering, and Tier 3 Escalation Support to IT Support team.'
+          - Description: '<strong>Led end-to-end device management strategy</strong>, including deployment of <strong>Workspace ONE MDM</strong> to all macOS and Windows devices.'
+            LinkText: Blog Post
+            LinkURL: 'https://andrewdoering.org/blog/2020/10/21/deploying-mdm-to-hundreds-of-devices/'
+          - Description: '<strong>Developed zero-touch deployment workflows</strong> for macOS using open-source tools, reducing provisioning time <strong>by 90% (from 200 minutes to 20)</strong>.'
+            LinkText: Blog Post
+            LinkURL: 'https://andrewdoering.org/blog/2020/10/21/deploying-mdm-to-hundreds-of-devices/'
+          - Description: '<strong>Established HR automation and identity pipelines</strong>, integrating BambooHR with Okta to eliminate manual onboarding steps and reduce user creation errors.'
+            LinkText: Blog Post
+            LinkURL: 'https://andrewdoering.org/blog/2020/08/08/transitioning-to-okta-from-active-directory-new-directory-service-infrastructure/'
+          - Description: '<strong>Led cloud-first IAM migration</strong>, deprecating on-prem Active Directory in favor of Okta and AzureAD interoperability for Windows fleets.'
+            LinkText: Blog Post
+            LinkURL: 'https://andrewdoering.org/blog/2020/08/08/transitioning-to-okta-from-active-directory-new-directory-service-infrastructure/'
+          - Description: '<strong>Designed and implemented FedRAMP-compliant infrastructure</strong>, aligning internal systems with strict U.S. government security standards.'
+            LinkText: Company Announcement
+            LinkURL: 'https://web.archive.org/web/20211022100922/https://www.thousandeyes.com/press-releases/fedramp-ready-designation'
+          - Description: '<strong>Pioneered global communication transformation</strong>, replacing WebEx with Zoom and launching Zoom Rooms, driving <strong>85% improvement in satisfaction</strong>.'
+          - Description: '<strong>Built out IT infrastructure for new offices</strong> in Austin, London, Dublin, and San Francisco — managing networking, AV, VoIP, and vendor coordination'
+            LinkText: Example Deployment
+            LinkURL: 'https://andrewdoering.org/blog/2020/infrastructure-engineer-deployment-example/'
+          - Description: '<strong>Launched company-wide security initiatives</strong>, hand-in-hand with security team members, for example: Google Workspace API Restrictions.'
+            LinkText: Source Code
+            LinkURL: 'https://github.com/delize/local-LAPS-python'
+          - Description: '<strong>Automated asset management</strong> using open-source tools (Snipe-IT) with cloud deployment and vendor system integration.'
+            LinkText: Source Code
+            LinkURL: 'https://github.com/delize/snipeit_cdw_automation'
+          - Description: '<strong>Managed global vendor relationships</strong> across North America, EMEA, and APAC, including procurement, deployment, and support operations.'
+          - Description: '<strong>Technology Used:</strong> Okta, Python, Workspace ONE, macOS, Windows, Google Workspace, BambooHR, Munki, Snipe-IT, AzureAD, Zoom, AWS'
+        
+      - Title: IT Support Engineer
+        Date: Jan. 2016 - Aug. 2017
+
+        Badges: [
+              'First IT Hire', 
+              'IT Leadership', 
+              'Initiative-Driven', 
+              'Cross-Functional Collaboration', 
+              'Process Builder', 
+              'Automation Advocate', 
+              'Security-First Mindset', 
+              'Compliance-Oriented', 
+              'FedRAMP Ready Enablement', 
+              'ISO 27001 Readiness & Achievement', 
+              'SOC-2 Compliance & Achievement'
+            ]
+
 
 Education:
-  - Course: BSc & MSc in Biomedical Engineering and Biophysics
-    Place: University of Lisbon
-    Date: Sep 2012 - Nov 2017
-    Details: Specialised in data analysis
+  - Course: "BSc in Industrial Technology"
+    Place: "East Carolina University"
+    Date: "Aug. 2013 - Dec. 2015"
+    Details:
+      - "Data Analytics"
+      - "IT Infrastructure"
+  - Course: "Study Abroad"
+    Place: "Linnaeus University"
+    Date: "Aug. 2014 - Jun. 2015"
+    Details:
+      - "International Law"
+      - "Information Security"
+      - "Swedish Art & Culture"
+  - Course: "AAS in Network Technologies"
+    Place: "Wake Tech Community College"
+    Date: "Aug. 2009 - Jan. 2012"
+    Details:
+      - "Networking Protocols"
 
 References:
   - Name: Fredrik Lind
@@ -105,37 +208,37 @@ References:
   - Name: Ludvig Stålberg
     Relation: Colleague at EQT, Manager at Epidemic Sound
     Contacts:
-    # - Icon: fas fa-phone
-    #   Info: +44 123 456 791
-    # - Icon: fas fa-envelope
-    #   Info: contact@person-two.com
+    - Icon: fas fa-phone
+      Info: +44 123 456 791
+    - Icon: fas fa-envelope
+      Info: contact@person-two.com
     - Icon: fas fa-map-marker-alt
       Info: Sweden
   - Name: Jon Kendle
     Relation: Co-worker at EQT
     Contacts:
-    # - Icon: fas fa-phone
-    #   Info: +44 123 456 791
-    # - Icon: fas fa-envelope
-    #   Info: contact@person-two.com
+    - Icon: fas fa-phone
+      Info: +44 123 456 791
+    - Icon: fas fa-envelope
+      Info: contact@person-two.com
     - Icon: fas fa-map-marker-alt
       Info: Sweden
   - Name: Tom Bensted
     Relation: Co-worker at ThousandEyes, Cisco
     Contacts:
-    # - Icon: fas fa-phone
-    #   Info: +44 123 456 791
-    # - Icon: fas fa-envelope
-    #   Info: contact@person-two.com
+    - Icon: fas fa-phone
+      Info: +44 123 456 791
+    - Icon: fas fa-envelope
+      Info: contact@person-two.com
     - Icon: fas fa-map-marker-alt
       Info: Great Britain
   - Name: Phill Jones
     Relation: Co-worker at ThousandEyes, Cisco
     Contacts:
-    # - Icon: fas fa-phone
-    #   Info: +44 123 456 791
-    # - Icon: fas fa-envelope
-    #   Info: contact@person-two.com
+    - Icon: fas fa-phone
+      Info: +44 123 456 791
+    - Icon: fas fa-envelope
+      Info: contact@person-two.com
     - Icon: fas fa-map-marker-alt
       Info: USA
 

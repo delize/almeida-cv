@@ -3,7 +3,7 @@ defaultContentLanguage = "en"
 enableRobotsTXT = true
 enableEmoji = true
 
-theme = "almeida-cv"
+theme = "delize-cv-template"
 disableKinds = ["page", "section", "taxonomy", "term", "RSS", "sitemap"]
 
 baseURL = "https://example.com/"
@@ -47,4 +47,6 @@ favicon = "/favicon.png"
 enableUnderlineBar = true
 # Center align sidebar section headers (Skills, Education, Interests, etc.)
 centerSidebarHeaders = true
+# Control education section placement: true = sidebar only, false = main body only
+educationSidebarOnly = true
 

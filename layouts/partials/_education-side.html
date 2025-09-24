@@ -5,33 +5,28 @@
         <div class="sideSection__title__divider"></div>
     </div>
     <div class="sideSection__content">
-        <div class="education__list">
+        <div class="education-side__list">
             {{ $length := len .Education }}
             {{ range $index, $edu := .Education }}
-                <div class="education__item">
-                    <h3 class="education__title">{{ $edu.Place | safeHTML }}</h3>
-                    <h4 class="education__place">{{ $edu.Course | safeHTML }}</h4>
-                    <h4 class="education__date">{{ $edu.Date | safeHTML }}</h4>
+                <div class="education-side__item">
+                    <div class="education-side__header">
+                        <h3 class="education-side__institution">{{ $edu.Place | safeHTML }}</h3>
+                        <h4 class="education-side__degree">{{ $edu.Course | safeHTML }}</h4>
+                        <div class="education-side__period">{{ $edu.Date | safeHTML }}</div>
+                    </div>
                     {{ if $edu.Details }}
-                    <div class="education__description">
-                        {{ if eq (printf "%T" $edu.Details) "string" }}
-                        <p><span class="bold">Details:</span> {{ $edu.Details | safeHTML }}</p>
-                        {{ else }}
-                        <div class="details__list">
-                            <span class="bold">Details:</span>
-                            <ul>
-                                {{ range $edu.Details }}
-                                <li>{{ . | safeHTML }}</li>
-                                {{ end }}
-                            </ul>
+                    <div class="education-side__specialization">
+                        <div class="education-side__label">Specialization:</div>
+                        <div class="education-side__details">
+                            {{ range $edu.Details }}
+                            <div class="education-side__detail">{{ . | safeHTML }}</div>
+                            {{ end }}
                         </div>
-                        {{ end }}
                     </div>
                     {{ end }}
                 </div>
-
                 {{ if lt $index (sub $length 1) }}
-                <div class="education__separator"></div>
+                <div class="education-side__separator"></div>
                 {{ end }}
             {{ end }}
         </div>

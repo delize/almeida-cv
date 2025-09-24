@@ -11,7 +11,15 @@
                 <h3 class="education__title">{{ .Course | safeHTML }}</h3>
                 <h4 class="education__place">{{ .Place | safeHTML }}</h4>
                 <h4 class="education__date">{{ .Date | safeHTML }}</h4>
-                <div class="education__description">{{ .Details | safeHTML }}</div>
+                {{ if .Details }}
+                <div class="education__description">
+                    <ul>
+                    {{ range .Details }}
+                        <li>{{ . | safeHTML }}</li>
+                    {{ end }}
+                    </ul>
+                </div>
+                {{ end }}
             </div>
         {{ end }}
     </div>

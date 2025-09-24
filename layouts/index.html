@@ -13,7 +13,9 @@
             <h1 class="mainHeading">{{ $data.BasicInfo.FirstName }} <span>{{ $data.BasicInfo.LastName }}</span></h1>
             {{ partial "_profile.html" $data }}
             {{ partial "_experience.html" $data }}
+            {{ if not .Site.Params.educationSidebarOnly }}
             {{ partial "_education.html" $data }}
+            {{ end }}
             {{ partial "_references.html" $data }}
         </div>
         {{ if .Site.Params.swapColumns }}
@@ -27,7 +29,9 @@
             {{ partial "_languages.html" $data }}
             {{ partial "_diplomas.html" $data }}
             {{ partial "_interests.html" $data }}
+            {{ if .Site.Params.educationSidebarOnly }}
             {{ partial "_education-side.html" $data }}
+            {{ end }}
         </div>
     </div>
 
