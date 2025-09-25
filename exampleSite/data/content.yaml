@@ -122,7 +122,6 @@ Experience:
       - Title: Sr. IT Engineer
         Date: Aug. 2017 - Aug. 2021
         Details:
-          - Description: '<strong>Bootstrapped IT and infrastructure operations</strong> from the ground up as the company’s first IT employee, scaling systems to support <strong>500+ global employees</strong> across multiple offices.'
           - Description: 'Team Lead for IT Engineering, and Tier 3 Escalation Support to IT Support team.'
           - Description: '<strong>Led end-to-end device management strategy</strong>, including deployment of <strong>Workspace ONE MDM</strong> to all macOS and Windows devices.'
             LinkText: Blog Post
@@ -154,6 +153,8 @@ Experience:
         
       - Title: IT Support Engineer
         Date: Jan. 2016 - Aug. 2017
+        Details:
+          - Description: '<strong>Bootstrapped IT and infrastructure operations</strong> from the ground up as the company’s first IT employee, scaling systems to support <strong>500+ global employees</strong> across multiple offices.'
 
         Badges: [
               'First IT Hire', 
